@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
+import { defaultTheme } from './src/common/constants/styles/themes/defaultTheme';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/navigation';
+import SeasonsModal from './src/screens/Details/localComponents/SeasonsModal';
+import { seasonMocked } from './src/common/constants/mocks/season.mock';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={defaultTheme}>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>  
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
